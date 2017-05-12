@@ -67,6 +67,19 @@ export const global = StyleSheet.create(
       width: 75,
       resizeMode: 'contain', //'cover' | 'contain'
     },
+    input: {
+        //flex: -1, // shrink to min height & width if needed
+        alignSelf: 'stretch', // overrides container alignItems
+        height: 50,
+        marginTop: 10,
+        padding: 4,
+        fontSize: 18,
+        borderWidth: 1,
+        borderColor: '#48bbec',
+    }, 
+    loading: {
+        position: "absolute", left: 0, top: 0, right: 0, bottom: 0, alignItems: "center", justifyContent: "center", backgroundColor: "rgba(0,0,0,.2)"
+    }
   });
 
 // more info https://goo.gl/dqw4jF
@@ -81,9 +94,15 @@ export const header = {
   container: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     alignItems: 'center',
-    paddingLeft: 8,
+    // paddingLeft: 8,
+    position: 'absolute',
+    left: 0,
+    right: 0,
+  },
+  right_header: {
+      paddingRight: 8,
   },
   // my own styles for titleAndIcon
   text: {
@@ -129,3 +148,40 @@ export const drawer = {
     },
   }
 ;
+
+//
+// Login
+//
+
+export const login_screen = {
+    logo: {
+        width: 66,
+        height: 55
+    },
+    container: {
+        flex: 1,
+        paddingTop: 40,
+        padding: 10,
+        //flexDirection: 'row', // main axis
+        // justifyContent: 'center', // main axis
+        alignItems: 'center', // cross axis
+        //backgroundColor: colors.text_light,
+        //color: colors.text_dark
+    },
+    heading: {
+        fontSize: 30,
+        marginTop: 10,
+    }, 
+    button: {
+        height: 50,
+        backgroundColor: colors.background_dark,
+        alignSelf: 'stretch',
+        marginTop: 10,
+        justifyContent: 'center'
+    }, 
+    buttonText: {
+        fontSize: 22,
+        color: '#FFF',
+        alignSelf: 'center'
+    }
+};

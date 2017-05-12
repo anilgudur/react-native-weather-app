@@ -42,7 +42,7 @@ export class HomeScreen extends Component {
             borderRadius={css.values.border_radius}
           />
           <Icon
-            onPress={() => ToastAndroid.show('Heart button pressed', 10000)}
+            onPress={() => navigate('LoginRoute', {param1: msg2})}
             reverse
             name='heartbeat'
             type="font-awesome"

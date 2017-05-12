@@ -23,6 +23,7 @@ import { HomeScreen } from "./HomeScreen";
 import { SettingsScreen } from "./SettingsScreen";
 import { DetailsScreen1 } from "./DetailsScreen1";
 import { DetailsScreen2 } from "./DetailsScreen2";
+import { LoginUserScreen } from "./LoginUserScreen";
 
 import * as css from "./Styles";
 import { Icon } from "react-native-elements";
@@ -55,11 +56,19 @@ class TitleAndIcon extends Component {
   render() {
     return (
     <View style={css.header.container}>
+        <Text style={css.header.text}>Doctor App</Text>
+    </View>
+    )
+  }
+}
+
+class MenuIcon extends Component {
+  render() {
+    return (
+    <View style={css.header.right_header}>
         <TouchableOpacity onPress={() => this.props.navigation.navigate('DrawerOpen')} underlayColor="transparent">
             <Icon name="dehaze" color='white' />
         </TouchableOpacity>
-        <Icon name="favorite" color='white' />
-        <Text style={css.header.text}>Doctor App</Text>
     </View>
     )
   }
@@ -69,17 +78,20 @@ const nav_stack = StackNavigator(
     // route config
     {
         HomeRoute: { screen: HomeScreen }, // this is displayed first
+        LoginRoute: { screen: LoginUserScreen },
         DetailsRoute: { screen: nav_tab },
     },
     // navigator config
     {
         //headerMode: 'none', // this removes the navigation header
+        initialRouteName: 'HomeRoute',
         navigationOptions: ({ navigation }) => {
             return {
                 // label text
                 headerTitle: <TitleAndIcon navigation={navigation} />,
                 // other styling
                 ...css.header,
+                headerRight: <MenuIcon navigation={navigation} />,
             }
         }
     }
@@ -103,7 +115,7 @@ const customComponent = (props) => (
 const NavDrawer = DrawerNavigator(
     // route config
     {
-        HomeRoute: {
+        HomePageRoute: {
             screen: nav_stack,
             navigationOptions: {
                 drawerLabel: 'Main App',
@@ -125,7 +137,9 @@ const NavDrawer = DrawerNavigator(
         contentComponent: customComponent,
         drawerPosition: 'left',
         // styling for for DrawerView.Items in contentOptions
-        contentOptions: css.drawer
+        contentOptions: css.drawer,
+        backBehavior: 'initialRoute',
+        initialRouteName: 'HomePageRoute'
     }
 );
 
