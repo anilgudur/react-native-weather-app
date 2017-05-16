@@ -9,7 +9,9 @@ import {
     Text,
     View,
     ScrollView,
-    TouchableOpacity
+    TouchableOpacity,
+    AsyncStorage,
+    ActivityIndicator
 } from 'react-native';
 import {
     DrawerNavigator,
@@ -24,6 +26,7 @@ import { SettingsScreen } from "./SettingsScreen";
 import { DetailsScreen1 } from "./DetailsScreen1";
 import { DetailsScreen2 } from "./DetailsScreen2";
 import { LoginUserScreen } from "./LoginUserScreen";
+import userAuthService from "./services/UserAuthService";
 
 import * as css from "./Styles";
 import { Icon } from "react-native-elements";
@@ -74,17 +77,82 @@ class MenuIcon extends Component {
   }
 }
 
+class LoginUserScreenComponent extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isLoggedIn: false,
+            //isMounted: false,
+            checkingAuth: true
+        }
+
+        this.handleOnLogin = this.handleOnLogin.bind(this);
+    }
+
+    componentDidMount(){
+        userAuthService.getAuthInfo((err, authInfo) => {
+            this.setState({
+                checkingAuth: false,
+                //isMounted: true,
+                isLoggedIn: authInfo != null
+            });
+        });
+    }
+
+    // componentWillMount(){
+    //     this.setState({isMounted: true});
+    // }
+
+    // componentWillUnmount(){
+    //     this.setState({isMounted: false})
+    // }
+
+    handleOnLogin() {
+        console.log("Successfully logged in, can show different view.");
+        //if (this.state.isMounted) {
+            this.setState({isLoggedIn: true});
+        //}
+    }
+
+    render() {
+        if (this.state.checkingAuth) {
+            return (
+                <View style={[css.global.loading]}>
+                    <ActivityIndicator 
+                        animating
+                        size="large"
+                    />
+                </View>
+            )
+        }
+
+        if (this.state.isLoggedIn) {
+            return (
+                <View>
+                    <Text>Logged in</Text>
+                </View>
+            )
+        } else {
+            return (
+                <LoginUserScreen handleOnLogin={this.handleOnLogin} />
+            )
+        }
+    }
+}
+
 const nav_stack = StackNavigator(
     // route config
     {
+        LoginRoute: { screen: LoginUserScreenComponent },
         HomeRoute: { screen: HomeScreen }, // this is displayed first
-        LoginRoute: { screen: LoginUserScreen },
         DetailsRoute: { screen: nav_tab },
     },
     // navigator config
     {
         //headerMode: 'none', // this removes the navigation header
-        initialRouteName: 'HomeRoute',
+        initialRouteName: 'LoginRoute',
         navigationOptions: ({ navigation }) => {
             return {
                 // label text

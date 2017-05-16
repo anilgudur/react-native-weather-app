@@ -78,7 +78,12 @@ export const global = StyleSheet.create(
         borderColor: '#48bbec',
     }, 
     loading: {
-        position: "absolute", left: 0, top: 0, right: 0, bottom: 0, alignItems: "center", justifyContent: "center", backgroundColor: "rgba(0,0,0,.2)"
+        position: "absolute", left: 0, top: 0, right: 0, bottom: 0, alignItems: "center", justifyContent: "center", 
+        backgroundColor: "rgba(0,0,0,.2)"
+    },
+    error: {
+        color: 'red',
+        paddingTop: 10
     }
   });
 
@@ -183,5 +188,8 @@ export const login_screen = {
         fontSize: 22,
         color: '#FFF',
         alignSelf: 'center'
+    },
+    loading: {
+        paddingTop: 100
     }
 };
