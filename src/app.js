@@ -25,8 +25,9 @@ import { HomeScreen } from "./HomeScreen";
 import { SettingsScreen } from "./SettingsScreen";
 import { DetailsScreen1 } from "./DetailsScreen1";
 import { DetailsScreen2 } from "./DetailsScreen2";
-import { LoginUserScreen } from "./LoginUserScreen";
-import userAuthService from "./services/UserAuthService";
+//import { LoginUserScreen } from "./LoginUserScreen";
+//import userAuthService from "./services/UserAuthService";
+import { LoginUserScreenComponent } from "./login/LoginUserScreenComponent";
 
 import * as css from "./Styles";
 import { Icon } from "react-native-elements";
@@ -77,7 +78,7 @@ class MenuIcon extends Component {
   }
 }
 
-class LoginUserScreenComponent extends Component {
+/*class LoginUserScreenComponent extends Component {
 
     constructor(props) {
         super(props);
@@ -140,7 +141,7 @@ class LoginUserScreenComponent extends Component {
             )
         }
     }
-}
+}*/
 
 const nav_stack = StackNavigator(
     // route config

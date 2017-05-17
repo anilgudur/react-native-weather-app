@@ -6,9 +6,9 @@ import {
     StatusBar, Image, TextInput, TouchableOpacity, ActivityIndicator
 } from 'react-native';
 import {Button, Icon} from "react-native-elements";
-import * as css from "./Styles";
+import * as css from "../Styles";
 
-//import { UserAuthService } from "./services/UserAuthService";
+//import { UserAuthService } from "./UserAuthService";
 
 //import buffer from 'buffer';
 
@@ -28,7 +28,7 @@ export class LoginUserScreen extends Component {
         console.log("Attempting to login with username: " + this.state.username);
         this.setState({loading: true});
 
-        var userAuthService = require("./services/UserAuthService");
+        var userAuthService = require("./UserAuthService");
 
         userAuthService.login({
             username: this.state.username, 
@@ -120,7 +120,7 @@ export class LoginUserScreen extends Component {
 
                 <Image 
                     style={css.login_screen.logo} 
-                    source={require('./images/Octocat.png')}
+                    source={require('../images/Octocat.png')}
                 />
                 <Text style={css.login_screen.heading}>
                     Github browser
