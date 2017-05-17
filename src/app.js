@@ -28,6 +28,7 @@ import { DetailsScreen2 } from "./DetailsScreen2";
 //import { LoginUserScreen } from "./LoginUserScreen";
 //import userAuthService from "./services/UserAuthService";
 import { LoginUserScreenComponent } from "./login/LoginUserScreenComponent";
+import FeedAndSearchTab from "./feed/FeedAndSearchTab";
 
 import * as css from "./Styles";
 import { Icon } from "react-native-elements";
@@ -149,6 +150,7 @@ const nav_stack = StackNavigator(
         LoginRoute: { screen: LoginUserScreenComponent },
         HomeRoute: { screen: HomeScreen }, // this is displayed first
         DetailsRoute: { screen: nav_tab },
+        FeedAndSearchTabRoute: { screen: FeedAndSearchTab }
     },
     // navigator config
     {

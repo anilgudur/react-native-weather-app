@@ -49,6 +49,7 @@ class UserAuthService {
                 user: JSON.parse(arr[userResultKey])
             }
 
+            //return cb();
             return cb(null, authInfo);
         });
     }

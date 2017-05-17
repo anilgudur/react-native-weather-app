@@ -24,7 +24,7 @@ export class LoginUserScreenComponent extends Component {
         this.handleOnLogin = this.handleOnLogin.bind(this);
     }
 
-    componentDidMount(){
+    componentDidMount() {
         userAuthService.getAuthInfo((err, authInfo) => {
             this.setState({
                 checkingAuth: false,
@@ -32,6 +32,18 @@ export class LoginUserScreenComponent extends Component {
                 isLoggedIn: authInfo != null
             });
         });
+
+        // call navigate for AppNavigator here:
+        //this.navigator && this.navigator.dispatch({ type: 'Navigate', routeName: 'FeedAndSearchTabRoute', params: {} });
+
+        const { navigate } = this.props.navigation;
+        navigate('FeedAndSearchTabRoute', {param1: "Anil"});
+        // const navigateAction = NavigationActions.navigate({
+        //     routeName: 'FeedAndSearchTabRoute',
+        //     params: {},
+        //     //action: NavigationActions.navigate({ routeName: 'SubProfileRoute' })
+        // })
+        // this.props.navigation.dispatch(navigateAction)
     }
 
     // componentWillMount(){
@@ -45,15 +57,21 @@ export class LoginUserScreenComponent extends Component {
     handleOnLogin() {
         console.log("Successfully logged in, can show different view.");
         //if (this.state.isMounted) {
-            this.setState({isLoggedIn: true});
+        this.setState({ isLoggedIn: true });
         //}
+
+        const { navigate } = this.props.navigation;
+        navigate('FeedAndSearchTabRoute', {param1: "Anil"});
     }
 
     render() {
+
+        const { navigate } = this.props.navigation;
+
         if (this.state.checkingAuth) {
             return (
                 <View style={[css.global.loading]}>
-                    <ActivityIndicator 
+                    <ActivityIndicator
                         animating
                         size="large"
                     />
@@ -62,10 +80,16 @@ export class LoginUserScreenComponent extends Component {
         }
 
         if (this.state.isLoggedIn) {
-            return (
+            //console.log('navigate');
+            //console.log(navigate);
+            //navigate('FeedAndSearchTabRoute', {param1: "Anil"});
+            /*return (
                 <View>
                     <Text>Logged in</Text>
                 </View>
+            )*/
+            return (
+                <View />
             )
         } else {
             return (
