@@ -4,8 +4,8 @@ import React, { Component } from "react";
 import { Text, View, ListView } from "react-native";
 import * as css from "../Styles";
 
-const userAuthKey = 'auth';
-const userResultKey = 'user';
+const userAuthKey = 'userAuthVal';
+const userResultKey = 'userResultVal';
 
 export class FeedScreen extends Component {
 
@@ -30,26 +30,20 @@ export class FeedScreen extends Component {
     };
 
     renderRow(rowData) {
-        /*var topicArr = ['company', 'location', 'followers', 'following', 'email', 'bio', 'public_repos'];
+        var topicArr = ['description', 'location', 'followers', 'following', 'email', 'bio', 'public_repos'];
         var list = topicArr.map((item, index) => {
             if (!rowData[item]) {
-                return (<View key={index} />);
+                 return <View key={index} />;
             } else {
                 return (
                     <View key={index}>
-                        <View>
                             <Text>{item}</Text>
                             <Text>{rowData[item]}</Text>
-                        </View>
                     </View>
                 );
             }
-        });*/
-        return (
-            <Text>
-                {rowData['id']}
-            </Text>
-        )
+        });
+        return <View>{list}</View>;
     }
 
     fetchFeed() {

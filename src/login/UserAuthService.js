@@ -10,8 +10,8 @@ import buffer from 'buffer';
 import {zipObject} from 'lodash';
 //var _ = require('lodash');
 
-const userAuthKey = 'user-auth';
-const userResultKey = 'user-result';
+const userAuthKey = 'userAuthVal';
+const userResultKey = 'userResultVal';
 
 class UserAuthService {
 
@@ -46,7 +46,7 @@ class UserAuthService {
                 header: {
                     Authorization: 'Basic ' + arr[userAuthKey]
                 },
-                user: JSON.parse(arr[userResultKey])
+                userResultVal: JSON.parse(arr[userResultKey])
             }
 
             //return cb();
