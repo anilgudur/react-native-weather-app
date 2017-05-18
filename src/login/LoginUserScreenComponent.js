@@ -26,18 +26,29 @@ export class LoginUserScreenComponent extends Component {
 
     componentDidMount() {
         userAuthService.getAuthInfo((err, authInfo) => {
-            this.setState({
-                checkingAuth: false,
-                //isMounted: true,
-                isLoggedIn: authInfo != null
-            });
+            if (err == null) {
+                this.setState({
+                    checkingAuth: false,
+                    //isMounted: true,
+                    isLoggedIn: authInfo != null
+                });
+            } else {
+                console.log("err");
+                console.log(err);
+                this.setState({
+                    checkingAuth: false,
+                    isLoggedIn: false
+                });
+            }
         });
 
         // call navigate for AppNavigator here:
         //this.navigator && this.navigator.dispatch({ type: 'Navigate', routeName: 'FeedAndSearchTabRoute', params: {} });
 
-        const { navigate } = this.props.navigation;
-        navigate('FeedAndSearchTabRoute', {param1: "Anil"});
+        if (this.state.isLoggedIn) {
+            const { navigate } = this.props.navigation;
+            navigate('FeedAndSearchTabRoute', {param1: "Anil"});
+        }
         // const navigateAction = NavigationActions.navigate({
         //     routeName: 'FeedAndSearchTabRoute',
         //     params: {},

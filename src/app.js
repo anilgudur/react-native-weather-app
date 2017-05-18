@@ -29,6 +29,7 @@ import { DetailsScreen2 } from "./DetailsScreen2";
 //import userAuthService from "./services/UserAuthService";
 import { LoginUserScreenComponent } from "./login/LoginUserScreenComponent";
 import FeedAndSearchTab from "./feed/FeedAndSearchTab";
+import { SignOutUserScreenComponent } from "./login/SignOutUserScreenComponent";
 
 import * as css from "./Styles";
 import { Icon } from "react-native-elements";
@@ -155,7 +156,7 @@ const nav_stack = StackNavigator(
     // navigator config
     {
         //headerMode: 'none', // this removes the navigation header
-        initialRouteName: 'LoginRoute',
+        initialRouteName: 'HomeRoute',
         navigationOptions: ({ navigation }) => {
             return {
                 // label text
@@ -198,6 +199,13 @@ const NavDrawer = DrawerNavigator(
             navigationOptions: {
                 drawerLabel: 'Settings',
                 drawerIcon: ({ tintColor }) => <Icon name="settings" color={tintColor} />,
+            }
+        },
+        SignOutRoute: {
+            screen: SignOutUserScreenComponent,
+            navigationOptions: {
+                drawerLabel: 'Sign Out',
+                drawerIcon: ({ tintColor }) => <Icon name="power-settings-new" color={tintColor} />,
             }
         },
     },

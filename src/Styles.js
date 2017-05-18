@@ -12,6 +12,7 @@ export const colors = {
   "text_light": '#d9d9d9',
   "text_medium": '#455a64',
   "text_dark": '#263238',
+  "border_color": "#48bbec"
 };
 
 export const values = {
@@ -75,7 +76,7 @@ export const global = StyleSheet.create(
         padding: 4,
         fontSize: 18,
         borderWidth: 1,
-        borderColor: '#48bbec',
+        borderColor: colors.border_color,
     }, 
     loading: {
         position: "absolute", left: 0, top: 0, right: 0, bottom: 0, alignItems: "center", justifyContent: "center", 
@@ -191,5 +192,31 @@ export const login_screen = {
     },
     loading: {
         paddingTop: 100
+    }
+};
+
+export const feed_screen = {
+    render_row: {
+        flex: 1,
+        flexDirection: 'row',
+        padding: 20,
+        alignItems: 'center',
+        // borderColor: colors.border_color,
+        // borderBottomWidth: 1
+    },
+    avatar_image: {
+        height: 36,
+        width: 36,
+        borderRadius: 18
+    },
+    text_container: {
+        paddingLeft: 20
+    },
+    created_at: {
+        fontWeight:"600"
+    },
+    separator: {
+        borderWidth: 1,
+        borderColor: colors.border_color
     }
 };
