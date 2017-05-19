@@ -30,6 +30,7 @@ import { DetailsScreen2 } from "./DetailsScreen2";
 import { LoginUserScreenComponent } from "./login/LoginUserScreenComponent";
 import FeedAndSearchTab from "./feed/FeedAndSearchTab";
 import { SignOutUserScreenComponent } from "./login/SignOutUserScreenComponent";
+import { IntroScreen } from "./swiper/index";
 
 import * as css from "./Styles";
 import { Icon } from "react-native-elements";
@@ -148,10 +149,11 @@ class MenuIcon extends Component {
 const nav_stack = StackNavigator(
     // route config
     {
-        LoginRoute: { screen: LoginUserScreenComponent },
         HomeRoute: { screen: HomeScreen }, // this is displayed first
+        LoginRoute: { screen: LoginUserScreenComponent },
         DetailsRoute: { screen: nav_tab },
-        FeedAndSearchTabRoute: { screen: FeedAndSearchTab }
+        FeedAndSearchTabRoute: { screen: FeedAndSearchTab },
+        IntroRoute: { screen: IntroScreen }
     },
     // navigator config
     {

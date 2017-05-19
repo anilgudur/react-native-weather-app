@@ -25,6 +25,7 @@ export class LoginUserScreenComponent extends Component {
     }
 
     componentDidMount() {
+console.log("Checking");
         userAuthService.getAuthInfo((err, authInfo) => {
             if (err == null) {
                 this.setState({
@@ -32,6 +33,10 @@ export class LoginUserScreenComponent extends Component {
                     //isMounted: true,
                     isLoggedIn: authInfo != null
                 });
+                if (authInfo != null) {
+                    const { navigate } = this.props.navigation;
+                    navigate('FeedAndSearchTabRoute', {param1: "Anil"});
+                }
             } else {
                 console.log("err");
                 console.log(err);
@@ -49,6 +54,8 @@ export class LoginUserScreenComponent extends Component {
             const { navigate } = this.props.navigation;
             navigate('FeedAndSearchTabRoute', {param1: "Anil"});
         }
+console.log("this.state.isLoggedIn ====>>>>");
+console.log(this.state.isLoggedIn);
         // const navigateAction = NavigationActions.navigate({
         //     routeName: 'FeedAndSearchTabRoute',
         //     params: {},
@@ -88,19 +95,11 @@ export class LoginUserScreenComponent extends Component {
                     />
                 </View>
             )
-        }
-
-        if (this.state.isLoggedIn) {
-            //console.log('navigate');
-            //console.log(navigate);
-            //navigate('FeedAndSearchTabRoute', {param1: "Anil"});
-            /*return (
-                <View>
-                    <Text>Logged in</Text>
-                </View>
-            )*/
+        } else if (this.state.isLoggedIn) {
             return (
-                <View />
+                <View>
+                    <Text>Hi</Text>
+                </View>
             )
         } else {
             return (

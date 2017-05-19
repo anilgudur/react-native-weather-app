@@ -61,6 +61,13 @@ export class HomeScreen extends Component {
             fontsize={css.values.font_body_size}
             borderRadius={css.values.border_radius}
           />
+          <Icon
+            onPress={() => navigate('IntroRoute', {param1: msg2})}
+            reverse
+            name='heartbeat'
+            type="font-awesome"
+            color={css.colors.button_bg}
+          />
         </View>
       </View>
     );
