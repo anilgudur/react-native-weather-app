@@ -31,6 +31,7 @@ import { LoginUserScreenComponent } from "./login/LoginUserScreenComponent";
 import FeedAndSearchTab from "./feed/FeedAndSearchTab";
 import { SignOutUserScreenComponent } from "./login/SignOutUserScreenComponent";
 import { IntroScreen } from "./swiper/index";
+import { SwiperTwoScreen } from "./swiper_two/Screens";
 
 import * as css from "./Styles";
 import { Icon } from "react-native-elements";
@@ -153,7 +154,8 @@ const nav_stack = StackNavigator(
         LoginRoute: { screen: LoginUserScreenComponent },
         DetailsRoute: { screen: nav_tab },
         FeedAndSearchTabRoute: { screen: FeedAndSearchTab },
-        IntroRoute: { screen: IntroScreen }
+        IntroRoute: { screen: IntroScreen },
+        SwiperTwoRoute: { screen: SwiperTwoScreen },
     },
     // navigator config
     {

@@ -68,6 +68,13 @@ export class HomeScreen extends Component {
             type="font-awesome"
             color={css.colors.button_bg}
           />
+          <Icon
+            onPress={() => navigate('SwiperTwoRoute', {param1: msg2})}
+            reverse
+            name='heartbeat'
+            type="font-awesome"
+            color={css.colors.button_bg}
+          />
         </View>
       </View>
     );

@@ -4,6 +4,7 @@ import React from "react";
 import {StyleSheet} from "react-native";
 
 export const colors = {
+  "background_app": '#FFFFFF',
   "background_dark": '#00B9FF',
   "background_medium": '#b3c4cb',
   "background_light": '#d9e3f0',
@@ -31,7 +32,7 @@ export const global = StyleSheet.create(
       flexDirection: 'column', // main axis
       justifyContent: 'center', // main axis
       alignItems: 'center', // cross axis
-      backgroundColor: colors.text_light,
+      backgroundColor: colors.background_app,
     },
     title: {
       flex: -1, // shrink to min height & width if needed
@@ -218,5 +219,34 @@ export const feed_screen = {
     separator: {
         borderWidth: 1,
         borderColor: colors.border_color
+    }
+};
+
+export const intro_screen = {
+    v_container: {
+      flex: 1,
+      //padding: 8,
+      flexDirection: 'column', // main axis
+      justifyContent: 'space-between', // main axis
+      alignItems: 'center', // cross axis
+      backgroundColor: colors.background_app,
+      borderWidth:1,
+      borderColor:'red',
+      backgroundColor:'yellow'
+    },
+    swiper_parent_view: {
+      flex: 1,
+      //padding: 8,
+      flexDirection: 'column', // main axis
+      justifyContent: 'space-between', // main axis
+      alignItems: 'center', // cross axis
+      backgroundColor: colors.background_app,
+      borderWidth:1,
+      borderColor:'blue',
+      backgroundColor:'green'
+    },
+    sign_in_row: {
+      //flex:1, flexDirection:'row', justifyContent:'flex-end', 
+      backgroundColor:'blue'
     }
 };
