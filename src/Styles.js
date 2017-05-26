@@ -223,27 +223,62 @@ export const feed_screen = {
 };
 
 export const intro_screen = {
+    container: {
+        flex: 1,
+        backgroundColor: "#F5F5F5",
+        justifyContent: 'space-between', // main axis
+    },
+    slide_text: {
+        color:'#676D75', padding:50, fontSize:20, fontWeight:'500'
+    },
+
+    footer_container: {
+        padding: 16,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        backgroundColor: 'transparent'
+    },
+    footer_touchable_opacity: {
+        padding: 8,
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: "transparent"
+    },
+    footer_link: {
+        fontSize:22,
+        fontWeight:'500',
+        color:'#39414B'
+    },
+    footer_link_signin: {
+        color:'#676D75'
+    },
+    footer_link_signup: {
+        color:'#39414B'
+    },
+
+
     v_container: {
       flex: 1,
       //padding: 8,
       flexDirection: 'column', // main axis
       justifyContent: 'space-between', // main axis
       alignItems: 'center', // cross axis
-      backgroundColor: colors.background_app,
+      //backgroundColor: colors.background_app,
       borderWidth:1,
       borderColor:'red',
       backgroundColor:'yellow'
     },
     swiper_parent_view: {
-      flex: 1,
-      //padding: 8,
+        flex: 1,
+          //padding: 8,
       flexDirection: 'column', // main axis
       justifyContent: 'space-between', // main axis
       alignItems: 'center', // cross axis
-      backgroundColor: colors.background_app,
+      //backgroundColor: colors.background_app,
       borderWidth:1,
       borderColor:'blue',
-      backgroundColor:'green'
+      backgroundColor:'green',
     },
     sign_in_row: {
       //flex:1, flexDirection:'row', justifyContent:'flex-end', 

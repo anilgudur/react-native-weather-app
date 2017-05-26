@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from "react";
-import { Text, View, ListView, ActivityIndicator, Image } from "react-native";
+import { Text, View, ListView, ActivityIndicator, Image, TouchableOpacity } from "react-native";
 import * as css from "../Styles";
 
 import moment from "moment";
@@ -22,6 +22,7 @@ export class FeedScreen extends Component {
 
         this.renderRow = this.renderRow.bind(this);
         this.fetchFeed = this.fetchFeed.bind(this);
+        this.pressRow = this.pressRow.bind(this);
     }
 
     componentDidMount() {
@@ -35,6 +36,10 @@ export class FeedScreen extends Component {
     getRowTitle(item) {
         item = (item === 'pushed_at') ? item.replace('_', ' ') : item;
         return item[0] ? item[0].toUpperCase() + item.slice(1) : item;
+    }
+
+    pressRow(rowData) {
+        console.log(rowData);
     }
 
     renderRow(rowData) {
@@ -53,15 +58,20 @@ export class FeedScreen extends Component {
             }
         });
         return (
-            <View style={css.feed_screen.render_row}>
-                {
-                    rowData['owner'] != undefined && rowData['owner'].avatar_url != undefined && 
-                    <Image source={{uri: rowData['owner'].avatar_url}} style={css.feed_screen.avatar_image} />
-                }
-                <View style={css.feed_screen.text_container}>
-                    {list}
+            <TouchableOpacity 
+                onPress={() => this.pressRow(rowData)} 
+                underlayColor='#ddd'
+            >
+                <View style={css.feed_screen.render_row}>
+                    {
+                        rowData['owner'] != undefined && rowData['owner'].avatar_url != undefined && 
+                        <Image source={{uri: rowData['owner'].avatar_url}} style={css.feed_screen.avatar_image} />
+                    }
+                    <View style={css.feed_screen.text_container}>
+                        {list}
+                    </View>
                 </View>
-            </View>
+            </TouchableOpacity>
         );
     }
 
